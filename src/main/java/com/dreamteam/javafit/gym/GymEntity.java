@@ -1,11 +1,13 @@
 package com.dreamteam.javafit.gym;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+
+import java.util.Objects;
 
 @Entity
-@Table(name="gym")
-@Data
+@Table(name="gyms")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class GymEntity {
 
     @Id
@@ -33,6 +35,18 @@ public class GymEntity {
 
     @Column(name="gym_description")
     private String gym_description;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        GymEntity gymEntity = (GymEntity) o;
+        return id == gymEntity.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }
 
 
