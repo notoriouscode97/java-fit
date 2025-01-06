@@ -3,18 +3,23 @@ package com.dreamteam.javafit.gym;
 import com.dreamteam.javafit.gym.dto.GymRequestDto;
 import com.dreamteam.javafit.gym.dto.GymResponseDto;
 import jakarta.validation.Valid;
-import lombok.Data;
+import lombok.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/gym")
-@Data
+@RestController
+@RequestMapping("/gym")
+@Getter @Setter
 public class GymController {
 
     private final GymService gymService;
+
+    public GymController(GymService gymService) {
+        this.gymService = gymService;
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<GymResponseDto> findGymById(@PathVariable int id) {

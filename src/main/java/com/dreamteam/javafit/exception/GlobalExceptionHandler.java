@@ -13,6 +13,12 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(GymNotFoundException.class)
+    public ErrorMessage userNotFoundException(GymNotFoundException e) {
+        return new ErrorMessage(e.getLocalizedMessage());
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationError(MethodArgumentNotValidException e) {

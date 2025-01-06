@@ -4,17 +4,23 @@ import com.dreamteam.javafit.exception.CommonErrorMessage;
 import com.dreamteam.javafit.exception.GymNotFoundException;
 import com.dreamteam.javafit.gym.dto.GymRequestDto;
 import com.dreamteam.javafit.gym.dto.GymResponseDto;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Data
+@Getter @Setter
 public class GymService {
 
     private final GymRepository gymRepository;
     private final GymMapper gymMapper;
+
+    public GymService(GymRepository gymRepository, GymMapper gymMapper) {
+        this.gymRepository = gymRepository;
+        this.gymMapper = gymMapper;
+    }
 
     public GymResponseDto getGymById(int gymId) {
         var gymEntity  = gymRepository.findById(gymId).orElseThrow(()

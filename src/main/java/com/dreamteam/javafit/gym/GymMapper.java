@@ -2,14 +2,12 @@ package com.dreamteam.javafit.gym;
 
 import com.dreamteam.javafit.gym.dto.GymRequestDto;
 import com.dreamteam.javafit.gym.dto.GymResponseDto;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.*;
 
 @Mapper
-public abstract class GymMapper {
+public interface GymMapper {
 
-    @Mapping(target = "id", ignore = true)
-    public abstract GymEntity dtoToGym(GymRequestDto gymRequestDto);
+    GymEntity dtoToGym(GymRequestDto gymRequestDto);
 
-    public abstract GymResponseDto gymToDto(GymEntity gymEntity);
+    GymResponseDto gymToDto(GymEntity gymEntity);
 }

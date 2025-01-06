@@ -1,8 +1,12 @@
 package com.dreamteam.javafit.gym.dto;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 public class GymResponseDto {
 
     private int id;

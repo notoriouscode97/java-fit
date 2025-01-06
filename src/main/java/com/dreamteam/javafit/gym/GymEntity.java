@@ -28,13 +28,13 @@ public class GymEntity {
     private float longitude;
 
     @Column(name="phone_number")
-    private String phone_number;
+    private String phoneNumber;
 
     @Column(name="working_hours")
-    private String working_hours;
+    private String workingHours;
 
     @Column(name="gym_description")
-    private String gym_description;
+    private String gymDescription;
 
     @Override
     public boolean equals(Object o) {
